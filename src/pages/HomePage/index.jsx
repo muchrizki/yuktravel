@@ -1,47 +1,72 @@
 import Navbar from "../../components/Navbar";
+import Carousel from "react-multi-carousel";
+import 'react-multi-carousel/lib/styles.css'
 
 import pantaiKuta from "../../assets/images/test/pantai-kuta.jpg"
+import bromo from "../../assets/images/test/bromo.jpg"
+import rajaAmpat from "../../assets/images/test/raja-ampat.jpg"
+import candiBorobudur from "../../assets/images/test/candi-borobudur.jpg"
+import candiPrambanan from "../../assets/images/test/candi-prambanan.jpg"
 
 import "./HomePage.css"
+import HomeCarousel from "../../components/HomeCarousel";
 
 export default function HomePage () {
 
+    const imgCarousel = {pantaiKuta, bromo, rajaAmpat, candiBorobudur, candiPrambanan}
+
+    const responsive = {
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3,
+          partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2,
+          partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1,
+          partialVisibilityGutter: 10 // this is needed to tell the amount of px that should be visible.
+        }
+      }
 
     return (
         <>
             <Navbar />
-            <div className="home-section-one bg-cyan-0 flex justify-between gap-0 py-6 px-16">
-                <div className="basis-3/4 bg-white rounded-4xl p-5 h-[500px] relative overflow-hidden shadow-md">
-                    
-                    <img src={pantaiKuta} alt="" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="text-konten absolute left-15 bottom-20 flex flex-col gap-4 text-white">
-                        <h3 className="text-2xl tracking-widest font-semibold">Pantai Kuta</h3>
-                        <p className="max-w-[600px] tracking-wider text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam dignissimos soluta deserunt animi iure hic architecto excepturi itaque consequatur.</p>
-                        <p className="bg-cyan-0 rounded-r-full border-[0.6px] tracking-wider w-fit px-4 py-2 text-sm">Bali, Indonesia</p>
-                    </div>
-                    
-                </div>
-                <div className="basis-1/4 bg-white rounded-4xl p-5 shadow-md">
-                    <div className="another-img">
-                        <h3 className="mb-4 font-medium text-lg tracking-wider">Another Images</h3>
-                        <div className="container-images flex gap-2 flex-wrap">
-                            <img src={pantaiKuta} alt="pantai-kuta" className="w-28 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200" />
-                            <img src={pantaiKuta} alt="pantai-kuta" className="w-28 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200" />
-                            <img src={pantaiKuta} alt="pantai-kuta" className="w-28 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200" />
-                            <img src={pantaiKuta} alt="pantai-kuta" className="w-28 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200" />
+            <HomeCarousel imgCarousel={imgCarousel} />
+
+            <div className="promo-home mt-0 pl-7 p-4 bg-cyan-0 border-1">
+                <h3 className="text-2xl font-medium tracking-wider mb-4 text-blue-400">Promo</h3>
+
+                <Carousel className="container-card-promo" responsive={responsive}>
+                    <div className="card-promo bg-blue-500 w-[200px] h-[180px] p-4 relative rounded-md shadow-lg overflow-hidden">
+                        <img src={bromo} alt="bromo" className="absolute inset-0 w-full h-full " />
+                        <div className="text-konten absolute bottom-3 left-3 text-white">
+                            <h3 className="text-lg tracking-wider font-medium">Mount Bromo</h3>
+                            <h4 className="price text-xs tracking-wide">Rp300.000<del className="italic ml-1">Rp450.000</del></h4>
+                            <p className="text-xs mt-1 italic tracking-widest hover:underline hover:text-blue-0 cursor-pointer">Details Promo</p>
                         </div>
                     </div>
-                    <div className="facilities mt-4">
-                        <h3 className="font-medium text-lg tracking-wider">Facilities</h3>
-                        <p className="text-xs tracking-wide mt-1">Tenda Pantai, Kolam Renang, Tempat bermain anak, Berkuda, ATV</p>
+
+                    <div className="card-promo bg-blue-500 w-[200px] h-[180px] p-4 relative rounded-md shadow-lg overflow-hidden">
+                        <img src={rajaAmpat} alt="raja-ampat" className="absolute inset-0 w-full h-full " />
+                        <div className="text-konten absolute bottom-3 left-3 text-white">
+                            <h3 className="text-lg tracking-wider font-medium">Raja Ampat</h3>
+                            <h4 className="price text-xs tracking-wide">Rp450.000<del className="italic ml-1">Rp600.000</del></h4>
+                            <p className="text-xs mt-1 italic tracking-widest hover:underline hover:text-blue-0 cursor-pointer">Details Promo</p>
+                        </div>
                     </div>
-                    <div className="address mt-2">
-                        <h3 className="font-medium text-lg tracking-wider">Address</h3>
-                        <p className="text-xs tracking-wide mt-1">Jl. Pantai Cemongkak, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361</p>
-                    </div>
-                </div>
+
+                   
+
+                </Carousel>
+            
             </div>
-        </>
-        
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim incidunt quis unde vel accusamus error, deserunt ea iste ab aut.</p>
+        </>        
     )
 }

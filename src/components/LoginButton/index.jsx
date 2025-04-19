@@ -4,7 +4,7 @@ export default function LoginButton () {
 
 
     return (
-        <button class="btn tracking-wider text-sm">Login</button>
+        <button className="btn tracking-wider text-sm text-white">Login</button>
 
     )
 }
