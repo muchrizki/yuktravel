@@ -243,7 +243,7 @@ export default function HomePage () {
             </div>
 
             {/* .Section empat  */}
-            <div className="section-empat bg-[#FAF8ED] flex flex-col gap-10 px-12 xl:px-22 md:px-14 lg:translate-x-8 xl:translate-x-22 py-5">
+            <div className="section-empat bg-[#FAF8ED] flex flex-col gap-10 px-12 xl:px-22 md:px-14 lg:translate-x-8 xl:translate-x-18 py-5">
                 <h3 className="text-3xl md:text-5xl font-semibold text-[#2D3134] tracking-wider">Find Popular <br /> Destination</h3>
                 <Carousel responsive={responsivePopular} className="pr-4">
                     <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
