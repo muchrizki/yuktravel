@@ -57,9 +57,40 @@ export default function HomePage () {
           items: 1.3
         }
       };
+
+      const responsivePopular = {
+        largeDesktop: {
+            breakpoint: { max: 3000, min: 1080 },
+            items: 4
+        },
+        desktop: {
+          breakpoint: { max: 1279, min: 1024 },
+          items: 3.4
+        },
+        largeTablet: {
+            breakpoint: { max: 1023, min: 912 },
+            items: 3
+        },
+        tablet: {
+          breakpoint: { max: 911, min: 768 },
+          items: 2.4
+        },
+        mobile: {
+            breakpoint: { max: 767, min: 540 },
+            items: 1.6
+        },
+        smallMobile: {
+          breakpoint: { max: 539, min: 430 },
+          items: 1.2
+        },
+        extraSmall : {
+          breakpoint: { max: 429, min: 0 },
+          items: 1
+        }
+      };
     
     return (
-        <>
+        <div className="bg-[#FAF8ED] overflow-x-hidden">
             {/* Navbar  */}
             <div className="navbar bg-[#FAF8ED] flex justify-between px-6 md:justify-around items-center py-4 w-[100%]">
                     <div className="logo-and-menus flex md:gap-10 lg:gap-20 items-center justify-between">
@@ -162,10 +193,10 @@ export default function HomePage () {
             </div>
 
             {/* Section tiga  */}
-            <div className="section-tiga bg-[#FAF8ED] p-12 flex flex-col items-center">
+            <div className="section-tiga bg-[#FAF8ED] p-12 flex flex-col gap-12 md:flex-row md:justify-around md:gap-10 items-center">
 
-                <div className="left relative">
-                    <div className="image w-70 h-70 rounded-full overflow-hidden relative">
+                <div className="left relative lg:pl-4">
+                    <div className="image w-70 lg:w-90 h-70 lg:h-90 rounded-full overflow-hidden relative">
                         <img src={rajaAmpat} alt="mount-bromo" className="w-full h-full inset-0 absolute"/>
                     </div>
 
@@ -181,7 +212,7 @@ export default function HomePage () {
                         <img src={customer} alt="destination" className="w-6" />
                         <div className="text text-center">
                             <h3 className="font-semibold text-xl tracking-wider text-[#2D3134]">5000 +</h3>
-                            <p className="text-xs text-[#939597]">Destinations</p>
+                            <p className="text-xs text-[#939597]">Customers</p>
                         </div>
                     </div>
 
@@ -190,10 +221,130 @@ export default function HomePage () {
                 
                 <div className="right py-12 flex flex-col gap-4">
                     <h4 className="text-lg font-semibold text-[#F66F4D] tracking-widest">Our Experience</h4>
-                    <h3 className="text-3xl tracking-wider text-[#2D3134]">Our Stories Have <br /> Adventures</h3>
-                    <p className="text-sm tracking-wider text-[#5B5F62]">We are experienced in bringing adventures to stay their journey, with all outdoor destinations in the world as our specialties. Start your adventure now! Nature has already called you!</p>
+                    <h3 className="text-3xl lg:text-6xl tracking-wider text-[#2D3134]">Our Stories Have <br /> Adventures</h3>
+                    <p className="text-sm lg:text-lg tracking-wider text-[#5B5F62] md:max-w-[320px] lg:max-w-[490px]">We are experienced in bringing adventures to stay their journey, with all outdoor destinations in the world as our specialties. Start your adventure now! Nature has already called you!</p>
+                    <div className="container-card mt-2 flex gap-3">
+                        <div className="card-one flex flex-col gap-2 bg-[#FFFFFF] p-4 rounded-lg shadow-lg w-24 lg:w-32 lg:pl-6">
+                            <h4 className="text-xl lg:text-3xl font-semibold text-[#F66F4D] tracking-wider">12K+</h4>
+                            <p className="text-xs lg:text-base tracking-wider text-[#939597]">Success <br /> Journey</p>
+                        </div>
+
+                        <div className="card-one flex flex-col gap-2 bg-[#FFFFFF] p-4 rounded-lg shadow-lg w-24 lg:w-32 lg:pl-6">
+                            <h4 className="text-xl lg:text-3xl font-semibold text-[#F66F4D] tracking-wider">16+</h4>
+                            <p className="text-xs lg:text-base tracking-wider text-[#939597]">Awards <br /> Winning</p>
+                        </div>
+
+                        <div className="card-one flex flex-col gap-2 bg-[#FFFFFF] p-4 rounded-lg shadow-lg w-24 lg:w-32 lg:pl-6">
+                            <h4 className="text-xl lg:text-3xl font-semibold text-[#F66F4D] tracking-wider">20+</h4>
+                            <p className="text-xs lg:text-base tracking-wider text-[#939597]">Years of <br /> Experience</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </>        
+
+            {/* .Section empat  */}
+            <div className="section-empat bg-[#FAF8ED] flex flex-col gap-10 px-12 xl:px-22 md:px-14 lg:translate-x-8 xl:translate-x-22 py-5">
+                <h3 className="text-3xl md:text-5xl font-semibold text-[#2D3134] tracking-wider">Find Popular <br /> Destination</h3>
+                <Carousel responsive={responsivePopular} className="pr-4">
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={mountBromo} alt="mount-bromo" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Mount Bromo, East Java</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Mountain Hiking Tour</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp300.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={rajaAmpat} alt="raja-ampat" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Raja Ampat, Papua</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Snorkeling, Free Diving, Scuba Diving</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp500.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={candiPrambanan} alt="candi-prambanan" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Candi Prambanan, Central Java</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Education, History, Temple</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp250.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={pantaiKuta} alt="pantai-kuta" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Pantai Kuta, Bali</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Relax, Jetski, Banana Boat</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp500.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={mountBromo} alt="mount-bromo" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Mount Bromo, East Java</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Mountain Hiking Tour</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp300.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={rajaAmpat} alt="raja-ampat" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Raja Ampat, Papua</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Snorkeling, Free Diving, Scuba Diving</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp500.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-[#FAF8ED] w-[260px] p-2 border-[#FFF] border-2 rounded-lg shadow-lg">
+                        <div className="image w-full h-[140px] rounded-lg overflow-hidden relative">
+                            <img src={candiPrambanan} alt="candi-prambanan" className="absolute inset-0 w-full h-full object-cover" />
+                        </div>
+                        <div className="text mt-2 px-2">
+                            <h4 className="font-semibold text-sm text-[#2D3134] tracking-wider">Candi Prambanan, Central Java</h4>
+                            <p className="text-xs tracking-wider text-[#5B5F62]">Education, History, Temple</p>
+                            <div className="price mt-4 flex justify-between items-center gap-1">
+                                <p className="text-[#2D3134] font-semibold text-sm">Rp250.000 <span className="text-[#5B5F62]">/Person</span></p>
+                                <p className="text-xs tracking-widest text-[#2D3134] border-1 border-[#2D3134] hover:text-[#FFF] hover:bg-[#2D3134] w-fit rounded-full px-3 py-2 cursor-pointer">Book Now</p>
+                            </div>
+                        </div>
+                    </div>
+                </Carousel>
+            </div>
+        </div>        
     )
 }
