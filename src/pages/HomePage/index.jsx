@@ -3,10 +3,16 @@ import searchIcon from "../../assets/icons/search.png"
 import navigation from "../../assets/icons/navigation.png"
 import destination from "../../assets/icons/destination.png"
 import customer from "../../assets/icons/customer.png"
+import sendMail from "../../assets/icons/send-mail.png"
 import companyLogo from "../../assets/logo/yuktravel-logo.png"
+
+import facebook from "../../assets/icons/socmed/facebook.png"
+import instagram from "../../assets/icons/socmed/instagram.png"
+import twitter from "../../assets/icons/socmed/twitter-footer.png"
 
 import { RxHamburgerMenu } from "react-icons/rx"
 import { IoIosArrowBack } from "react-icons/io"
+import { CiStar } from "react-icons/ci"
 
 import cardHome from "../../assets/images/card-home.png"
 import pantaiKuta from "../../assets/images/test/pantai-kuta.jpg"
@@ -14,8 +20,12 @@ import mountBromo from "../../assets/images/test/bromo.jpg"
 import rajaAmpat from "../../assets/images/test/raja-ampat.jpg"
 import candiPrambanan from "../../assets/images/test/candi-prambanan.jpg"
 
+import imageCustomer from "../../assets/images/test/customer-image.png"
+import coverYellow from "../../assets/images/cover-yellow.png"
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from "react-router-dom"
 
 export const CustomButton = ({ next, previous, goToSlide, ...rest }) => {
     const { carouselState: { currentSlide } } = rest;
@@ -29,7 +39,10 @@ export const CustomButton = ({ next, previous, goToSlide, ...rest }) => {
 }
 export default function HomePage () {
 
+    const navigate = useNavigate()
+
     const navMenu = ["Home", "About Us", "Destinations", "Tours", "Blog"]
+
 
     const responsive = {
         desktop: {
@@ -104,8 +117,8 @@ export default function HomePage () {
                         </ul>
                     </div>
 
-                    <div className="login-or-booking hidden md:flex items-center gap-2 px-6 py-2 border-1 border-[#F66F4D] rounded-full cursor-pointer">
-                        <p className="text-sm tracking-wider text-[#F66F4D] font-medium">Book Now</p>
+                    <div className="login-or-booking hidden md:flex items-center gap-2 px-6 py-2 border-1 border-[#F66F4D] rounded-full cursor-pointer hover:shadow-lg">
+                        <p className="text-sm tracking-wider text-[#F66F4D] font-medium" onClick={() => navigate('/login')}>Book Now</p>
                         <img src={booknowIcon} alt="booknow" className="w-4" />
                     </div>
                     <RxHamburgerMenu className="text-[#F66F4D] md:hidden cursor-pointer" />
@@ -344,6 +357,171 @@ export default function HomePage () {
                         </div>
                     </div>
                 </Carousel>
+            </div>
+
+            {/* Section lima     */}
+            <div className="section-lima p-12 md:pl-15 lg:translate-x-8 xl:translate-x-25">
+                <div className="header">
+                    <h3 className="text-3xl md:text-5xl font-semibold text-[#2D3134] tracking-wider">Top Destinations</h3>
+                    <p className="text-sm md:text-lg mt-2 md:mt-3 tracking-wider pl-1 text-[#5B5F62]">Sost Brilliant reasons Entrada should be your one-stop-shop!</p>
+                    <div className="category-city mt-4 flex flex-wrap gap-3">
+                        <p className="text-xs md:text-sm px-4 py-2 hover:bg-[#2D3134] hover:text-[#FFF] text-[#3D3D3D] border-1 border-[#2D3134] w-fit rounded-full tracking-widest cursor-pointer">London</p>
+                        <p className="text-xs md:text-sm px-4 py-2 hover:bg-[#2D3134] hover:text-[#FFF] text-[#3D3D3D] border-1 border-[#2D3134] w-fit rounded-full tracking-widest cursor-pointer">Bangkok</p>
+                        <p className="text-xs md:text-sm px-4 py-2 hover:bg-[#2D3134] hover:text-[#FFF] text-[#3D3D3D] border-1 border-[#2D3134] w-fit rounded-full tracking-widest cursor-pointer">Jakarta</p>
+                        <p className="text-xs md:text-sm px-4 py-2 hover:bg-[#2D3134] hover:text-[#FFF] text-[#3D3D3D] border-1 border-[#2D3134] w-fit rounded-full tracking-widest cursor-pointer">Singapore</p>
+                        <p className="text-xs md:text-sm px-4 py-2 hover:bg-[#2D3134] hover:text-[#FFF] text-[#3D3D3D] border-1 border-[#2D3134] w-fit rounded-full tracking-widest cursor-pointer">Bali</p>
+                    </div>
+                </div>
+
+                <div className="place mt-12 flex flex-col md:flex-row gap-4">
+                    <div className="img-place w-[270px] h-[200px] relative rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-150 cursor-pointer">
+                        <img src={pantaiKuta} alt="pantai-kuta" className="inset-0 absolute w-full h-full"/>
+                        <div className="rating px-3 py-1 bg-white text-[#2D3134] absolute top-4 left-4 rounded-full text-xs font-medium tracking-wider">4.5</div>
+                        <div className="text absolute bottom-4 left-4 pl-1">
+                            <h4 className="text-lg font-semibold tracking-widest text-[#FFF]">Bali</h4>
+                            <p className="text-sm font-base tracking-widest text-[#FFF]">Pantai Kuta</p>
+                        </div>
+                    </div>
+
+                    <div className="img-place w-[270px] h-[200px] relative rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-150 cursor-pointer">
+                        <img src={mountBromo} alt="pantai-kuta" className="inset-0 absolute w-full h-full"/>
+                        <div className="rating px-3 py-1 bg-white text-[#2D3134] absolute top-4 left-4 rounded-full text-xs font-medium tracking-wider">4.7</div>
+                        <div className="text absolute bottom-4 left-4 pl-1">
+                            <h4 className="text-lg font-semibold tracking-widest text-[#FFF]">East Java</h4>
+                            <p className="text-sm font-base tracking-widest text-[#FFF]">Mount Bromo</p>
+                        </div>
+                    </div>
+
+                    <div className="img-place w-[270px] h-[200px] relative rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-150 cursor-pointer">
+                        <img src={candiPrambanan} alt="pantai-kuta" className="inset-0 absolute w-full h-full"/>
+                        <div className="rating px-3 py-1 bg-white text-[#2D3134] absolute top-4 left-4 rounded-full text-xs font-medium tracking-wider">4.4</div>
+                        <div className="text absolute bottom-4 left-4 pl-1">
+                            <h4 className="text-lg font-semibold tracking-widest text-[#FFF]">Central Java</h4>
+                            <p className="text-sm font-base tracking-widest text-[#FFF]">Candi Prambanan</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            {/* Section enam  */}
+            <div className="section-enam p-12 flex flex-col md:flex-row items-center justify-center gap-10 lg:pl-24 xl:pl-36">
+                <img src={imageCustomer} alt="image-customer" className="w-64 drop-shadow-2xl" />
+                <div className="text w-100% flex flex-col gap-4">
+                    <h3 className="text-3xl font-semibold text-[#2D3134] tracking-wider pl-1 lg:text-5xl">A Customer Said <br /> About Us:</h3>
+                    <div className="mt-6 flex flex-col md:flex-row gap-4 overflow-scroll px-2 py-2 overflow-y-hidden">
+                        
+                        <div className="card-review max-w-[330px] flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                            <p className="text-sm text-[#5B5F62] tracking-wider">Salty helped me a lot in finding the best place for our first outdoor adventure trip. They responded very quickly and gave me a detailed account of the place—its history, as well as its best features.</p>
+                            <div className="rating flex gap-1 mt-7">
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar /> 
+                            </div>
+                            <h4 className="name mt-1 text-base text-[#2D3134] font-medium tracking-wider">Andre Sarma</h4>
+                            <p className="text-[#5B5F62] mt-1 text-xs -translate-y-2 tracking-wider">Enterpreneur</p>
+                        </div>
+
+                        <div className="card-review max-w-[330px] flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                            <p className="text-sm text-[#5B5F62] tracking-wider">Salty helped me a lot in finding the best place for our first outdoor adventure trip. They responded very quickly and gave me a detailed account of the place—its history, as well as its best features.</p>
+                            <div className="rating flex gap-1 mt-7">
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar /> 
+                            </div>
+                            <h4 className="name mt-1 text-base text-[#2D3134] font-medium tracking-wider">Andre Sarma</h4>
+                            <p className="text-[#5B5F62] mt-1 text-xs -translate-y-2 tracking-wider">Enterpreneur</p>
+                        </div>
+
+                        <div className="card-review max-w-[330px] flex-shrink-0 bg-white p-4 rounded-lg shadow-lg">
+                            <p className="text-sm text-[#5B5F62] tracking-wider">Salty helped me a lot in finding the best place for our first outdoor adventure trip. They responded very quickly and gave me a detailed account of the place—its history, as well as its best features.</p>
+                            <div className="rating flex gap-1 mt-7">
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar />
+                                <CiStar /> 
+                            </div>
+                            <h4 className="name mt-1 text-base text-[#2D3134] font-medium tracking-wider">Andre Sarma</h4>
+                            <p className="text-[#5B5F62] mt-1 text-xs -translate-y-2 tracking-wider">Enterpreneur</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            {/* Section tujuh  */}
+            <div className="section-tujuh p-12 lg:px-27 xl:translate-x-10 xl:pr-35">
+                <div className="email bg-white p-4 py-10 relative rounded-xl flex flex-col overflow-hidden md:text-center md:items-center">
+                    
+                    {/* <img src={coverYellow} alt="" className="absolute inset-0 object-cover w-full h-full" /> */}
+
+                    <div className="">
+                        <h3 className="text-2xl font-semibold tracking-wider text-[#2D3134] lg:text-3xl">Sign up to our newsletter</h3>
+                        <p className="text-sm lg:text-base text-[#5B5F62] tracking-wider mt-2">Reciev latest news, update, and many other things every week.</p>
+                        <div className="mail mt-4 w-60 md:w-100 shadow-sm flex justify-between items-center gap-1 rounded-xl px-2 bg-cyan-0 lg:translate-x-12s">
+                            <input type="text" className="px-2 py-3 tracking-wider outline-0 w-47 rounded-lg text-xs lg:text-sm" placeholder="Enter your email address" />
+                            <img src={sendMail} alt="mail-button" className="w-12 translate-y-[2px]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="footer p-12 flex flex-col gap-10 md:flex-row md:flex-wrap md:gap-20 lg:gap-12 lg:pl-24 xl:pl-36">
+                <div className="satu">
+                    <div className="logo flex items-center gap-2">
+                        <img src={companyLogo} alt="" className="w-8" />
+                        <h4 className="tracking-wider font-bold text-[#2D3134] text-lg">yuktravel</h4>
+                    </div>
+                    <p className="text-sm mt-4 pl-1 tracking-wider text-[#5B5F62]">Enjoy the touring <br /> with Salty</p>
+                    <div className="socmed flex gap-3 mt-5">
+                        <img src={facebook} alt="" />
+                        <img src={instagram} alt="" />
+                        <img src={twitter} alt="" />
+                    </div>
+                </div>
+
+                <div className="resources pl-1">
+                    <h3 className="tracking-wider font-medium text-[#2D3134] text-lg">Resources</h3>
+                    <div className="item mt-3 flex flex-col gap-1">
+                        <p className="text-[#676A6C] tracking-wider">Download</p>
+                        <p className="text-[#676A6C] tracking-wider">Help Center</p>
+                        <p className="text-[#676A6C] tracking-wider">Guide Book</p>
+                        <p className="text-[#676A6C] tracking-wider">App Directory</p>
+                    </div>
+                </div>
+
+                <div className="travellers pl-1">
+                    <h3 className="tracking-wider font-medium text-[#2D3134] text-lg">Travellers</h3>
+                    <div className="item mt-3 flex flex-col gap-1">
+                        <p className="text-[#676A6C] tracking-wider">Why Travellers</p>
+                        <p className="text-[#676A6C] tracking-wider">Enterprice</p>
+                        <p className="text-[#676A6C] tracking-wider">Customer Stories</p>
+                        <p className="text-[#676A6C] tracking-wider">Instagram post</p>
+                    </div>
+                </div>
+
+                <div className="company pl-1">
+                    <h3 className="tracking-wider font-medium text-[#2D3134] text-lg">Company</h3>
+                    <div className="item mt-3 flex flex-col gap-1">
+                        <p className="text-[#676A6C] tracking-wider">Travelling</p>
+                        <p className="text-[#676A6C] tracking-wider">About Locato</p>
+                        <p className="text-[#676A6C] tracking-wider">Success</p>
+                        <p className="text-[#676A6C] tracking-wider">Information</p>
+                    </div>
+                </div>
+
+                <div className="get app pl-1">
+                    <h3 className="tracking-wider font-medium text-[#2D3134] text-lg">Get App</h3>
+                    <div className="item mt-3 flex flex-col gap-1">
+                        <p className="text-[#676A6C] tracking-wider">App Store</p>
+                        <p className="text-[#676A6C] tracking-wider">Google Play Store</p>
+                    </div>
+                </div>
             </div>
         </div>        
     )
