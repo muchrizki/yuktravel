@@ -1,16 +1,15 @@
-import booknowIcon from "../../assets/icons/booknow.png"
+
 import searchIcon from "../../assets/icons/search.png"
 import navigation from "../../assets/icons/navigation.png"
 import destination from "../../assets/icons/destination.png"
 import customer from "../../assets/icons/customer.png"
 import sendMail from "../../assets/icons/send-mail.png"
-import companyLogo from "../../assets/logo/yuktravel-logo.png"
 
 import facebook from "../../assets/icons/socmed/facebook.png"
 import instagram from "../../assets/icons/socmed/instagram.png"
 import twitter from "../../assets/icons/socmed/twitter-footer.png"
+import companyLogo from "../../assets/logo/yuktravel-logo.png"
 
-import { RxHamburgerMenu } from "react-icons/rx"
 import { IoIosArrowBack } from "react-icons/io"
 import { CiStar } from "react-icons/ci"
 
@@ -21,11 +20,13 @@ import rajaAmpat from "../../assets/images/test/raja-ampat.jpg"
 import candiPrambanan from "../../assets/images/test/candi-prambanan.jpg"
 
 import imageCustomer from "../../assets/images/test/customer-image.png"
-import coverYellow from "../../assets/images/cover-yellow.png"
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useNavigate } from "react-router-dom"
+import useActivity from "../../hooks/useActivity"
+import { useEffect } from "react"
+import useDetailActivity from "../../hooks/useDetailActivity"
+import Navbar from "../../components/Navbar.jsx"
 
 export const CustomButton = ({ next, previous, goToSlide, ...rest }) => {
     const { carouselState: { currentSlide } } = rest;
@@ -38,11 +39,6 @@ export const CustomButton = ({ next, previous, goToSlide, ...rest }) => {
     )
 }
 export default function HomePage () {
-
-    const navigate = useNavigate()
-
-    const navMenu = ["Home", "About Us", "Destinations", "Tours", "Blog"]
-
 
     const responsive = {
         desktop: {
@@ -101,28 +97,19 @@ export default function HomePage () {
           items: 1
         }
       };
+
+      const {activities, loading, getActivity} = useActivity()
+      const {activity, getActivityById} = useDetailActivity()
+
+      useEffect(() => {
+        getActivity()
+        // getActivityById("6f6a450d-c417-4417-9243-c5c81964cd5b")
+      }, [activity])
     
     return (
         <div className="bg-[#FAF8ED] overflow-x-hidden">
             {/* Navbar  */}
-            <div className="navbar bg-[#FAF8ED] flex justify-between px-6 md:justify-around items-center py-4 w-[100%]">
-                    <div className="logo-and-menus flex md:gap-10 lg:gap-20 items-center justify-between">
-                        <div className="logo flex gap-2 items-center">
-                            <img src={companyLogo} alt="yuktravel-logo" className="w-8 md:w-10" />
-                            <h3 className="text-lg md:text-xl font-bold text-[#2D3134] tracking-wider">yuktravel</h3>
-                        </div>
-                        
-                        <ul className=" md:gap-4 lg:gap-8 text-sm hidden md:flex">
-                            {navMenu.map(item => <li key={item} className="tracking-wider cursor-pointer text-[#2E476B] hover:text-[#F66F4D]">{item}</li>)}
-                        </ul>
-                    </div>
-
-                    <div className="login-or-booking hidden md:flex items-center gap-2 px-6 py-2 border-1 border-[#F66F4D] rounded-full cursor-pointer hover:shadow-lg">
-                        <p className="text-sm tracking-wider text-[#F66F4D] font-medium" onClick={() => navigate('/login')}>Book Now</p>
-                        <img src={booknowIcon} alt="booknow" className="w-4" />
-                    </div>
-                    <RxHamburgerMenu className="text-[#F66F4D] md:hidden cursor-pointer" />
-            </div>
+            <Navbar />
 
             {/* Section Satu  */}
             <div className="section-satu px-7 py-12 bg-[#FAF8ED] flex flex-col md:flex-row items-center justify-around gap-0">
@@ -471,7 +458,7 @@ export default function HomePage () {
                 </div>
             </div>
 
-            <div className="footer p-12 flex flex-col gap-10 md:flex-row md:flex-wrap md:gap-20 lg:gap-12 lg:pl-24 xl:pl-36">
+            <div className="footer p-12 flex flex-col gap-10 md:flex-row md:flex-wrap md:gap-20 lg:gap-12 lg:pl-24 xl:pl-36 xl:justify-around xl:gap-6">
                 <div className="satu">
                     <div className="logo flex items-center gap-2">
                         <img src={companyLogo} alt="" className="w-8" />
